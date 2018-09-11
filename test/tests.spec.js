@@ -289,7 +289,7 @@ describe('Datetime', () => {
 		utils.clickOnElement(component.find('.rdtSwitch'));
 
 		// Here the selected month is _May_, which is correct
-		expect(component.find('.rdtMonth .rdtActive').text()).toEqual('May');
+		expect(component.find('.rdtMonth.rdtActive').text()).toEqual('May');
 
 		// Go to year view
 		utils.clickOnElement(component.find('.rdtSwitch'));
@@ -298,7 +298,7 @@ describe('Datetime', () => {
 		utils.clickNthYear(component, 1);
 
 		// The selected month is now _January_
-		expect(component.find('.rdtMonth .rdtActive').text()).toEqual('May');
+		expect(component.find('.rdtMonth.rdtActive').text()).toEqual('May');
 	});
 
 	describe('with custom props', () => {
@@ -615,11 +615,12 @@ describe('Datetime', () => {
 				component = utils.createDatetime({ timeFormat: 'HH:mm:ss:SSS', viewMode: 'time', defaultValue: date });
 
 			utils.increaseHour(component);
+			
 			setTimeout(() => {
 				expect(utils.getHours(component)).not.toEqual('2');
 				expect(utils.getHours(component)).not.toEqual('3');
 				done();
-			}, 920);
+			}, 0);
 		});
 
 		it('long decrease time', (done) => {
@@ -631,7 +632,7 @@ describe('Datetime', () => {
 				expect(utils.getHours(component)).not.toEqual('1');
 				expect(utils.getHours(component)).not.toEqual('0');
 				done();
-			}, 920);
+			}, 0);
 		});
 
 		it('timeConstraints -> increase time', () => {

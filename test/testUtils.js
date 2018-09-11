@@ -75,6 +75,10 @@ module.exports = {
 		datetime.find('.rdtCounter .rdtBtn').at(0).simulate('mouseDown');
 	},
 
+	stopIncreaseHour: (datetime) => {
+		datetime.find('.rdtCount .rdtBtn').at(0).simulate('mouseup');
+	},
+	
 	decreaseHour: (datetime) => {
 		datetime.find('.rdtCounter .rdtBtn').at(1).simulate('mouseDown');
 	},
@@ -111,15 +115,15 @@ module.exports = {
 	},
 
 	getHours: (datetime) => {
-		return datetime.find('.rdtCount').at(0).text();
+		return datetime.find('.rdtCount').at(0).props().value;
 	},
 
 	getMinutes: (datetime) => {
-		return datetime.find('.rdtCount').at(1).text();
+		return datetime.find('.rdtCount').at(1).props().value;
 	},
 
 	getSeconds: (datetime) => {
-		return datetime.find('.rdtCount').at(2).text();
+		return datetime.find('.rdtCount').at(2).props().value;
 	},
 
 	getInputValue: (datetime) => {
