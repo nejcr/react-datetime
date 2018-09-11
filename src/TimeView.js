@@ -60,7 +60,7 @@ var DateTimePickerTime = onClickOutside( createClass({
 			}
 			return React.createElement('div', { key: type, className: 'rdtCounter' }, [
 				React.createElement('span', { key: 'up', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'increase', type ), onContextMenu: this.disableContextMenu }, '▲' ),
-				React.createElement('div', { key: 'c', className: 'rdtCount' }, value ),
+				React.createElement('input', { key: 'c', className: 'rdtCount', value: value, onChange: this.onInputChange( type ), onFocus: this.onInputFocus } ),
 				React.createElement('span', { key: 'do', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'decrease', type ), onContextMenu: this.disableContextMenu }, '▼' )
 			]);
 		}
@@ -70,7 +70,7 @@ var DateTimePickerTime = onClickOutside( createClass({
 	renderDayPart: function() {
 		return React.createElement('div', { key: 'dayPart', className: 'rdtCounter' }, [
 			React.createElement('span', { key: 'up', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'toggleDayPart', 'hours'), onContextMenu: this.disableContextMenu }, '▲' ),
-			React.createElement('div', { key: this.state.daypart, className: 'rdtCount' }, this.state.daypart ),
+			React.createElement('div', { key: this.state.daypart, className: 'rdtCount'}, this.state.daypart),
 			React.createElement('span', { key: 'do', className: 'rdtBtn', onMouseDown: this.onStartClicking( 'toggleDayPart', 'hours'), onContextMenu: this.disableContextMenu }, '▼' )
 		]);
 	},
@@ -142,7 +142,6 @@ var DateTimePickerTime = onClickOutside( createClass({
 	componentWillReceiveProps: function( nextProps ) {
 		this.setState( this.calculateState( nextProps ) );
 	},
-
 	updateMilli: function( e ) {
 		var milli = parseInt( e.target.value, 10 );
 		if ( milli === e.target.value && milli >= 0 && milli < 1000 ) {
@@ -160,7 +159,21 @@ var DateTimePickerTime = onClickOutside( createClass({
 			React.createElement('th', { className: 'rdtSwitch', colSpan: 4, onClick: this.props.showView( 'days' ) }, date.format( this.props.dateFormat ) )
 		));
 	},
-
+	onInputChange: function ( type ) {
+		var me = this;
+		return function ( e ) {
+			var time = parseInt( e.target.value, 10 );
+			if ( time >= me.timeConstraints[ type ].min && time <= me.timeConstraints[ type ].max ) {
+				me.props.setTime( type, time );
+				var update = {};
+				update[ type ] = time;
+				me.setState( update );
+			}
+		};
+	},
+	onInputFocus: function ( event ) {
+		event.target.select();
+	},
 	onStartClicking: function( action, type ) {
 		var me = this;
 
