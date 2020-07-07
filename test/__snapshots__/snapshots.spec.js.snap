@@ -27,10 +27,11 @@ exports[`dateFormat set to false 1`] = `
                     onMouseDown={[Function]}>
                     ▲
                   </span>
-                  <div
-                    className="rdtCount">
-                    12
-                  </div>
+                  <input
+                    className="rdtCount"
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value={12} />
                   <span
                     className="rdtBtn"
                     onContextMenu={[Function]}
@@ -50,10 +51,11 @@ exports[`dateFormat set to false 1`] = `
                     onMouseDown={[Function]}>
                     ▲
                   </span>
-                  <div
-                    className="rdtCount">
-                    00
-                  </div>
+                  <input
+                    className="rdtCount"
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value="00" />
                   <span
                     className="rdtBtn"
                     onContextMenu={[Function]}
@@ -3979,7 +3981,7 @@ exports[`test defaultValue: set to arbitrary value 1`] = `
     onFocus={[Function]}
     onKeyDown={[Function]}
     type="text"
-    value="12/22/2016 12:36 AM" />
+    value="12/22/2016 7:36 AM" />
   <div
     className="rdtPicker">
     <div
@@ -4312,7 +4314,7 @@ exports[`test defaultValue: set to arbitrary value 1`] = `
               className="rdtTimeToggle"
               colSpan={7}
               onClick={[Function]}>
-              12:36 AM
+              7:36 AM
             </td>
           </tr>
         </tfoot>
@@ -6072,7 +6074,7 @@ exports[`test value: set to arbitrary value 1`] = `
     onFocus={[Function]}
     onKeyDown={[Function]}
     type="text"
-    value="12/22/2016 12:36 AM" />
+    value="12/22/2016 7:36 AM" />
   <div
     className="rdtPicker">
     <div
@@ -6405,7 +6407,7 @@ exports[`test value: set to arbitrary value 1`] = `
               className="rdtTimeToggle"
               colSpan={7}
               onClick={[Function]}>
-              12:36 AM
+              7:36 AM
             </td>
           </tr>
         </tfoot>
@@ -7632,10 +7634,11 @@ exports[`viewMode set to time 1`] = `
                     onMouseDown={[Function]}>
                     ▲
                   </span>
-                  <div
-                    className="rdtCount">
-                    12
-                  </div>
+                  <input
+                    className="rdtCount"
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value={12} />
                   <span
                     className="rdtBtn"
                     onContextMenu={[Function]}
@@ -7655,10 +7658,11 @@ exports[`viewMode set to time 1`] = `
                     onMouseDown={[Function]}>
                     ▲
                   </span>
-                  <div
-                    className="rdtCount">
-                    00
-                  </div>
+                  <input
+                    className="rdtCount"
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    value="00" />
                   <span
                     className="rdtBtn"
                     onContextMenu={[Function]}

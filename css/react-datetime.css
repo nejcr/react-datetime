@@ -199,6 +199,8 @@ td.rdtYear:hover {
 .rdtCounter .rdtCount {
   height: 20%;
   font-size: 1.2em;
+  width: 30px;
+  text-align: center;
 }
 
 .rdtMilli {
